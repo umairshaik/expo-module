@@ -25,6 +25,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "../app.plugin.js",
+        {
+          "apiKey": "custom_secret_api, created by umair"
+        }
+      ]
+    ]
   }
 }

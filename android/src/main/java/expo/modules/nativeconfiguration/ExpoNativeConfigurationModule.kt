@@ -3,6 +3,7 @@ package expo.modules.nativeconfiguration
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 import java.net.URL
+import android.content.pm.PackageManager
 
 class ExpoNativeConfigurationModule : Module() {
   // Each module class must implement the definition function. The definition consists of components
@@ -13,6 +14,12 @@ class ExpoNativeConfigurationModule : Module() {
     // Can be inferred from module's class name, but it's recommended to set it explicitly for clarity.
     // The module will be accessible from `requireNativeModule('ExpoNativeConfiguration')` in JavaScript.
     Name("ExpoNativeConfiguration")
+
+    Function("getApiKey") {
+          val applicationInfo = appContext?.reactContext?.packageManager?.getApplicationInfo(appContext?.reactContext?.packageName.toString(), PackageManager.GET_META_DATA)
+
+          return@Function applicationInfo?.metaData?.getString("MY_CUSTOM_API_KEY")
+        }
 
     // Sets constant properties on the module. Can take a dictionary or a closure that returns a dictionary.
     Constants(

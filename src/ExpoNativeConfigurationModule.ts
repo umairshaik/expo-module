@@ -6,6 +6,7 @@ declare class ExpoNativeConfigurationModule extends NativeModule<ExpoNativeConfi
   PI: number;
   hello(): string;
   setValueAsync(value: string): Promise<void>;
+  getApiKey(): string;
 }
 
 // This call loads the native module object from the JSI.

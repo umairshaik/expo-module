@@ -3,3 +3,8 @@
 export { default } from './ExpoNativeConfigurationModule';
 export { default as ExpoNativeConfigurationView } from './ExpoNativeConfigurationView';
 export * from  './ExpoNativeConfiguration.types';
+import ExpoNativeConfigurationModule from './ExpoNativeConfigurationModule';
+
+export function getApiKey(): string {
+  return ExpoNativeConfigurationModule.getApiKey();
+}

@@ -10,6 +10,10 @@ public class ExpoNativeConfigurationModule: Module {
     // The module will be accessible from `requireNativeModule('ExpoNativeConfiguration')` in JavaScript.
     Name("ExpoNativeConfiguration")
 
+    Function("getApiKey") {
+         return Bundle.main.object(forInfoDictionaryKey: "MY_CUSTOM_API_KEY") as? String
+        }
+
     // Sets constant properties on the module. Can take a dictionary or a closure that returns a dictionary.
     Constants([
       "PI": Double.pi

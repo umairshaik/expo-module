@@ -1,9 +1,9 @@
-import { useEvent } from 'expo';
-import ExpoNativeConfiguration, { ExpoNativeConfigurationView } from 'expo-native-configuration';
-import { Button, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { useEvent } from "expo";
+import ExpoNativeConfiguration, { ExpoNativeConfigurationView } from "expo-native-configuration";
+import { Button, SafeAreaView, ScrollView, Text, View } from "react-native";
 
 export default function App() {
-  const onChangePayload = useEvent(ExpoNativeConfiguration, 'onChange');
+  const onChangePayload = useEvent(ExpoNativeConfiguration, "onChange");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,7 +19,7 @@ export default function App() {
           <Button
             title="Set value"
             onPress={async () => {
-              await ExpoNativeConfiguration.setValueAsync('Hello from JS!');
+              await ExpoNativeConfiguration.setValueAsync("Hello from JS!");
             }}
           />
         </Group>
@@ -33,6 +33,12 @@ export default function App() {
             style={styles.view}
           />
         </Group>
+        <Group name="Native UI">
+          <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+            <Text>API key: {ExpoNativeConfiguration.getApiKey()}</Text>
+          </View>
+        </Group>
+        );
       </ScrollView>
     </SafeAreaView>
   );
@@ -50,24 +56,24 @@ function Group(props: { name: string; children: React.ReactNode }) {
 const styles = {
   header: {
     fontSize: 30,
-    margin: 20,
+    margin: 20
   },
   groupHeader: {
     fontSize: 20,
-    marginBottom: 20,
+    marginBottom: 20
   },
   group: {
     margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 10,
-    padding: 20,
+    padding: 20
   },
   container: {
     flex: 1,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee"
   },
   view: {
     flex: 1,
-    height: 200,
-  },
+    height: 200
+  }
 };
