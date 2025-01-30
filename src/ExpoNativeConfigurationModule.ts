@@ -1,6 +1,6 @@
-import { NativeModule, requireNativeModule } from 'expo';
+import { NativeModule, requireNativeModule } from "expo";
 
-import { ExpoNativeConfigurationModuleEvents } from './ExpoNativeConfiguration.types';
+import { ExpoNativeConfigurationModuleEvents } from "./ExpoNativeConfiguration.types";
 
 declare class ExpoNativeConfigurationModule extends NativeModule<ExpoNativeConfigurationModuleEvents> {
   PI: number;
@@ -10,4 +10,6 @@ declare class ExpoNativeConfigurationModule extends NativeModule<ExpoNativeConfi
 }
 
 // This call loads the native module object from the JSI.
-export default requireNativeModule<ExpoNativeConfigurationModule>('ExpoNativeConfiguration');
+export default requireNativeModule<ExpoNativeConfigurationModule>(
+  "ExpoNativeConfiguration",
+);
